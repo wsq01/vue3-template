@@ -31,9 +31,6 @@
         <el-button type="danger" plain icon="Delete" :disabled="multiple" @click="handleDelete" v-hasPermi="['system:dict:remove']">删除</el-button>
       </el-col>
       <el-col :span="1.5">
-        <el-button type="warning" plain icon="Download" @click="handleExport" v-hasPermi="['system:dict:export']">导出</el-button>
-      </el-col>
-      <el-col :span="1.5">
         <el-button type="warning" plain icon="Close" @click="handleClose">关闭</el-button>
       </el-col>
       <right-toolbar v-model:showSearch="showSearch" @queryTable="getList"></right-toolbar>
@@ -260,10 +257,6 @@ async function handleDelete(row) {
   getList()
   proxy.$modal.msgSuccess("删除成功")
   useDictStore().removeDict(queryParams.value.dictType)
-}
-/** 导出按钮操作 */
-function handleExport() {
-  proxy.download("system/dict/data/export", { ...queryParams.value }, `dict_data_${new Date().getTime()}.xlsx`);
 }
 
 getTypes(route.params && route.params.dictId);

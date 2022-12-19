@@ -27,13 +27,13 @@
       <right-toolbar v-model:showSearch="showSearch" @queryTable="getList"></right-toolbar>
     </el-row>
 
-    <el-table v-loading="loading" :data="userList" @selection-change="handleSelectionChange">
+    <el-table border v-loading="loading" :data="userList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="用户名称" prop="userName" :show-overflow-tooltip="true" />
-      <el-table-column label="用户昵称" prop="nickName" :show-overflow-tooltip="true" />
-      <el-table-column label="邮箱" prop="email" :show-overflow-tooltip="true" />
-      <el-table-column label="手机" prop="phonenumber" :show-overflow-tooltip="true" />
-      <el-table-column label="状态" align="center" prop="status">
+      <el-table-column align="center" label="用户名称" prop="userName" :show-overflow-tooltip="true" />
+      <el-table-column align="center" label="用户昵称" prop="nickName" :show-overflow-tooltip="true" />
+      <el-table-column align="center" label="邮箱" prop="email" :show-overflow-tooltip="true" />
+      <el-table-column align="center" label="手机" prop="phonenumber" :show-overflow-tooltip="true" />
+      <el-table-column align="center" label="状态" prop="status">
         <template #default="scope">
           <dict-tag :options="sys_normal_disable" :value="scope.row.status" />
         </template>
